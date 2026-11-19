@@ -1,0 +1,7 @@
+# Local convenience shortcodes for the Termux installer.
+# These are NOT license keys or secrets; Termux and this project need no activation license.
+DOWNLOAD_CODE=DK3D-2517-TARAMA
+ACTIVATION_CODE=DRAGON-5173-TERMUX
+BRANCH=arena/2b2224d1-tarama
+REPO_URL=https://github.com/eraslan19j/Tarama.git
+PORT=5173

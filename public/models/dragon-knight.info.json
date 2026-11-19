@@ -1,0 +1,27 @@
+{
+  "name": "The Dragon Knight",
+  "generator": "Tarama procedural character pipeline",
+  "forwardAxis": "+Z",
+  "heightMeters": 3.051,
+  "meshCount": 317,
+  "vertexCount": 115160,
+  "triangleCount": 98718,
+  "animationClips": [
+    {
+      "name": "Idle",
+      "duration": 1,
+      "tracks": 26
+    },
+    {
+      "name": "Walk",
+      "duration": 1,
+      "tracks": 26
+    },
+    {
+      "name": "Run",
+      "duration": 1,
+      "tracks": 26
+    }
+  ],
+  "notes": "Portable texture-free GLB. Use the in-app Export button for the fully textured browser version."
+}

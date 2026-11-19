@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09080a" />
+    <meta name="description" content="An interactive real-time 3D dragon knight character study with animated armor, cape, walking and running." />
+    <title>Dragon Knight — Real-Time Character Lab</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene" aria-label="Interactive 3D view of an armored dragon knight"></canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <div id="loading" class="loading" role="status" aria-live="polite">
+        <div class="loading__sigil" aria-hidden="true">🐉</div>
+        <div class="loading__eyebrow">CHARACTER FORGE</div>
+        <h1>Forging the Dragon Knight</h1>
+        <p>Building articulated plate, cloth and courtyard lighting…</p>
+        <div class="loading__track"><span></span></div>
+      </div>
+
+      <header class="brand">
+        <div class="brand__mark" aria-hidden="true"><span>III</span></div>
+        <div>
+          <p class="eyebrow">REAL-TIME CHARACTER STUDY</p>
+          <h1>The Dragon Knight</h1>
+          <p class="brand__sub">Blackened steel · dragon helm · crimson cloak</p>
+        </div>
+      </header>
+
+      <div class="status" aria-live="polite">
+        <span class="status__dot"></span>
+        <span id="fps">60 FPS</span>
+        <span class="status__divider"></span>
+        <span id="mode-readout">WALK</span>
+      </div>
+
+      <aside class="control-panel" aria-label="Character animation controls">
+        <div class="panel-heading">
+          <span>01</span>
+          <div>
+            <h2>Animation Rig</h2>
+            <p>Procedural locomotion &amp; secondary motion</p>
+          </div>
+        </div>
+
+        <section class="control-section">
+          <div class="section-label"><span>LOCOMOTION</span><em>1 · 2 · 3</em></div>
+          <div class="segmented" id="motion-modes" role="group" aria-label="Locomotion mode">
+            <button type="button" data-mode="idle">Idle</button>
+            <button type="button" data-mode="walk" class="is-active">Walk</button>
+            <button type="button" data-mode="run">Run</button>
+          </div>
+          <label class="slider-row" for="speed">
+            <span>Cadence <output id="speed-value">1.00×</output></span>
+            <input id="speed" type="range" min="0.45" max="1.65" step="0.01" value="1" />
+          </label>
+          <button type="button" class="wide-toggle is-active" data-toggle="patrol" aria-pressed="true">
+            <span><strong>Auto patrol</strong><small>Follow the courtyard sigil path</small></span>
+            <i></i>
+          </button>
+        </section>
+
+        <section class="control-section">
+          <div class="section-label"><span>EQUIPMENT</span><em>C · H · B · V</em></div>
+          <div class="toggle-grid">
+            <button type="button" class="chip is-active" data-toggle="cape" aria-pressed="true">Cape</button>
+            <button type="button" class="chip is-active" data-toggle="helmet" aria-pressed="true">Helmet</button>
+            <button type="button" class="chip is-active" data-toggle="shield" aria-pressed="true">Shield</button>
+            <button type="button" class="chip is-active" data-toggle="sword" aria-pressed="true">Sword</button>
+          </div>
+          <label class="slider-row" for="armor-flex">
+            <span>Armor flex <output id="armor-flex-value">70%</output></span>
+            <input id="armor-flex" type="range" min="0" max="1" step="0.01" value="0.7" />
+          </label>
+          <label class="slider-row" for="wind">
+            <span>Cape wind <output id="wind-value">55%</output></span>
+            <input id="wind" type="range" min="0" max="1" step="0.01" value="0.55" />
+          </label>
+        </section>
+
+        <section class="control-section">
+          <div class="section-label"><span>CAMERA</span><em>drag to orbit</em></div>
+          <div class="camera-grid">
+            <button type="button" data-camera="hero">Hero</button>
+            <button type="button" data-camera="portrait">Portrait</button>
+            <button type="button" data-camera="wide">Courtyard</button>
+          </div>
+          <button type="button" class="wide-toggle is-active" data-toggle="cinematic" aria-pressed="true">
+            <span><strong>Cinematic orbit</strong><small>Slow drifting camera</small></span>
+            <i></i>
+          </button>
+        </section>
+
+        <section class="control-section control-section--actions">
+          <button type="button" id="export-glb" class="primary-action">
+            <span>↓</span> Export character .glb
+          </button>
+          <button type="button" id="reset-view" class="secondary-action">Reset studio</button>
+          <p class="panel-note">Named rig + Idle / Walk / Run clips. <a href="/models/dragon-knight.glb" download>Download prebuilt GLB</a></p>
+        </section>
+      </aside>
+
+      <section class="reference-panel" aria-label="Source reference images">
+        <div class="reference-panel__head">
+          <span>02 / REFERENCES</span>
+          <button type="button" id="toggle-references" aria-expanded="true">Hide</button>
+        </div>
+        <div id="reference-rail" class="reference-rail"></div>
+      </section>
+
+      <footer class="key-hints">
+        <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> steer</span>
+        <span><kbd>Shift</kbd> sprint</span>
+        <span><kbd>Space</kbd> pause</span>
+        <span><kbd>R</kbd> reset</span>
+      </footer>
+
+      <div id="toast" class="toast" role="status"></div>
+
+      <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Reference image preview" hidden>
+        <button type="button" id="lightbox-close" aria-label="Close reference image">×</button>
+        <figure>
+          <img id="lightbox-image" alt="" />
+          <figcaption id="lightbox-caption"></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

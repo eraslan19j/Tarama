@@ -8,7 +8,7 @@ Termux is free and open source: **there is no license key or paid activation cod
 | Activation code | `DRAGON-5173-TERMUX` |
 
 Current branch: `arena/2b2224d1-tarama`  
-Studio port: `5173`
+Game port: `5173`
 
 ## One-command install
 
@@ -19,7 +19,7 @@ curl -fsSL https://github.com/eraslan19j/Tarama/raw/refs/heads/arena/2b2224d1-ta
   | bash -s -- DK3D-2517-TARAMA DRAGON-5173-TERMUX
 ```
 
-It installs `git`, `curl` and Node.js, downloads this branch into `~/Tarama`, installs npm dependencies, and starts the studio. Open:
+It installs `git`, `curl` and Node.js, downloads this branch into `~/Tarama`, installs npm dependencies, and starts the game. Open:
 
 ```text
 http://127.0.0.1:5173

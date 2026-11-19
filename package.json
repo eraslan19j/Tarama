@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "A real-time procedural 3D dragon knight character and small animated world.",
+  "description": "Emberfall: a playable third-person 3D action game featuring a procedural Dragon Knight, dragonfire sigils, enemy waves and fullscreen support.",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",

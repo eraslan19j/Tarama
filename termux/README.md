@@ -8,6 +8,7 @@ Termux is free and open source: **there is no license key or paid activation cod
 | Activation code | `DRAGON-5173-TERMUX` |
 
 Current branch: `arena/2b2224d1-tarama`  
+Published commit: `0704130`  
 Studio port: `5173`
 
 ## One-command install
@@ -50,7 +51,7 @@ bash termux/activate.sh DRAGON-5173-TERMUX
 curl -fL -o ~/Tarama-source.tar.gz \
   https://codeload.github.com/eraslan19j/Tarama/tar.gz/refs/heads/arena/2b2224d1-tarama
 tar -xzf ~/Tarama-source.tar.gz -C ~
-cd "$(tar -tzf ~/Tarama-source.tar.gz | head -n 1 | cut -d/ -f1)"
+cd ~ && cd "$(tar -tzf ~/Tarama-source.tar.gz | head -n 1 | cut -d/ -f1)"
 bash termux/activate.sh DRAGON-5173-TERMUX
 ```
 

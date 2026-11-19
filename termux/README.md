@@ -8,7 +8,6 @@ Termux is free and open source: **there is no license key or paid activation cod
 | Activation code | `DRAGON-5173-TERMUX` |
 
 Current branch: `arena/2b2224d1-tarama`  
-Published commit: `0704130`  
 Studio port: `5173`
 
 ## One-command install
